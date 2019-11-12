@@ -10,6 +10,7 @@ import pandas as pd
 dataset = pd.read_csv('Data.csv')
 
 X = pd.DataFrame(dataset.iloc[:, :-1].values)
+x = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3].values
 Y = pd.DataFrame(dataset.iloc[:, 3].values)
 
@@ -21,10 +22,10 @@ X.iloc[:, 1:3]=missingvalues.transform(X.iloc[:, 1:3])
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 labelencoder_X = LabelEncoder()
-X[:,0]= labelencoder_X.fit_transform(X[:,0])
-#onehotencoder= OneHotEncoder(ColumnTransformer= [0])
+x[:,0]= labelencoder_X.fit_transform(x[:,0])
+onehotencoder= OneHotEncoder(categorical_features=0)
 #onehotencoder= OneHotEncoder()
-X=onehotencoder.fit_transform(X).toarray()
+x=onehotencoder.fit_transform(x).toarray()
 labelencoder_y=LabelEncoder()
 y=labelencoder_y.fit_transform(y)
 
