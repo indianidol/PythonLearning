@@ -43,3 +43,76 @@ regressor.fit(X_train, y_train)
 
 # Predicting the Test set results
 y_pred = regressor.predict(X_test)
+
+#Building the optimal model using Backward Elimination
+import statsmodels.api as sm
+X= np.append(arr = np.ones((50,1)).astype(int) , values = X, axis =1)
+
+# Backward Eliminiation
+X_opt = X [:,[0, 1, 2, 3, 4, 5]]
+#OLS = Ordinary lease squares
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+# check p value pick the highest 
+regressor_OLS.summary()
+
+# Removing index 2 as the P Value is .990 which is above out expected Standard .05
+X_opt = X [:,[0, 1, 3, 4, 5]]
+#OLS = Ordinary lease squares
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+# check p value pick the highest 
+regressor_OLS.summary()
+
+# Removing index 1 as the P Value is .940 which is above out expected Standard .05
+X_opt = X [:,[0, 3, 4, 5]]
+#OLS = Ordinary lease squares
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+# check p value pick the highest 
+regressor_OLS.summary()
+
+# Removing index 4 as the P Value is .602 which is above out expected Standard .05
+X_opt = X [:,[0, 3, 5]]
+#OLS = Ordinary lease squares
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+# check p value pick the highest 
+regressor_OLS.summary()
+
+
+# Removing index 5 as the P Value is .60 which is above out expected Standard .05
+X_opt = X [:,[0, 3]]
+#OLS = Ordinary lease squares
+regressor_OLS = sm.OLS(endog = y, exog = X_opt).fit()
+# check p value pick the highest 
+regressor_OLS.summary()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
