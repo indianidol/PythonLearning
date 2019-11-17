@@ -9,9 +9,9 @@ import pandas as pd
 
 dataset = pd.read_csv('Data.csv')
 
-X = pd.DataFrame(dataset.iloc[:, :-1].values)
+X = pd.DataFrame(dataset.iloc[:, :-1].values)       
 #Y = pd.DataFrame(dataset.iloc[:, 3].values)
-#x = dataset.iloc[:, :-1].values
+#x = dataset.iloc[:, :-1].values    
 y = dataset.iloc[:, 3].values
 
 
